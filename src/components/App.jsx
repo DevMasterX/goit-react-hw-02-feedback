@@ -31,45 +31,26 @@ export class App extends Component {
     const positivePercentage = this.countPositiveFeedbackPercentage();
     return (
       <>
-
-<Section title="Please leave feedback">
-        <FeedbackOptions
-          options={Object.keys(this.state)}
-          onLeaveFeedback={this.handleClickFeedbackBtn}
-        />
-
-</Section>
-         <Section title="Statistics">
-         {total ?
-          <Statistics
-            good={good}
-            neutral={neutral}
-            bad={bad}
-            total={total}
-            positivePercentage={positivePercentage}
+        <Section title="Please leave feedback">
+          <FeedbackOptions
+            options={Object.keys(this.state)}
+            onLeaveFeedback={this.handleClickFeedbackBtn}
           />
-        
-        : 
-        <Notification message="There is no feedback" />
-        }
+        </Section>
+        <Section title="Statistics">
+          {total ? (
+            <Statistics
+              good={good}
+              neutral={neutral}
+              bad={bad}
+              total={total}
+              positivePercentage={positivePercentage}
+            />
+          ) : (
+            <Notification message="There is no feedback" />
+          )}
         </Section>
       </>
     );
   }
 }
-
-// <h2>Please leave feedback</h2>
-
-// <ul>
-//   <li><button>Good</button></li>
-//   <li><button>Neutral</button></li>
-//   <li><button>Bad</button></li>
-// </ul>
-// <h2>Statistics</h2>
-// <ul>
-//   <li>Good: 0</li>
-//   <li>Neutral: 0</li>
-//   <li>Bad: 0</li>
-//   <li>Total: 0</li>
-//   <li>Positive feedback: 0%</li>
-// </ul>

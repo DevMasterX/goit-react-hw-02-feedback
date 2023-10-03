@@ -1,19 +1,22 @@
-import css from './FeedbackOptions.module.css'
+import css from './FeedbackOptions.module.css';
 
-const FeedbackOptions = ({options, onLeaveFeedback}) => {
+const FeedbackOptions = ({ options, onLeaveFeedback }) => {
   return (
-<>
-{options.map(option => {
-    return(
-<button className={css.button}
-type='button'
-onClick={() => onLeaveFeedback(option)}
-key={option}
->{option.toUpperCase()}</button>)
-})}
-</>
-  )
-}
+    <>
+      {options.map(option => {
+        return (
+          <button
+            className={css.button}
+            type="button"
+            onClick={() => onLeaveFeedback(option)}
+            key={option}
+          >
+            {option.toUpperCase()}
+          </button>
+        );
+      })}
+    </>
+  );
+};
 
-
-export default FeedbackOptions
+export default FeedbackOptions;
